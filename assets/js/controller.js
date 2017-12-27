@@ -1,4 +1,4 @@
-app.controller("weatherCntr", function ($scope, weatherFactory) {
+app.controller("weatherCntr", function ($scope, weatherFactory, NgMap) {
     var cityObject = {};
     $scope.cityData = [];
     $scope.submitForm = function () {
@@ -19,11 +19,21 @@ app.controller("weatherCntr", function ($scope, weatherFactory) {
             }
             $scope.cityData.push(cityObject);
             console.log("array", $scope.cityData);
-            initialize();
         }, function (error) {
             $scope.result = error;
         });
         //chart
         //chart end
+        //map
+        $scope.zoom = 12;
+        $scope.googleMapsUrl = "https://maps.googleapis.com/maps/api/js?key=AIzaSyAbPS1Kz6lF4e6C9_lo9ex1jH6VqLr7gqY";
+        NgMap.getMap().then(function (map) {
+            //            var tsry = map.getBounds().contains(marker.getPosition());
+            //            console.log("try", tsry);
+            console.log("map", map);
+            console.log('markers', map.markers);
+            console.log('shapes', map.shapes);
+        });
+        //map end
     }
 })
