@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Weather App</title>
+    <script src="assets/js/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+    <script src="assets/js/app.js"></script>
+    <script src="assets/js/controller.js"></script>
+    <script src="assets/js/model.js"></script>
+    <link rel="stylesheet" href="assets/css/style.css"> </head>
+
+<body ng-app="weatherinfo">
+    <div ng-controller="weatherCntr">
+        <form ng-submit="submitForm()">
+            <input type="text" placeholder="Enter City Name" ng-model="cityName">
+            <input type="Submit" value="Submit"> </form>
+        <table border="1">
+            <thead>
+                <tr>
+                    <td>City</td>
+                    <td>Temprature</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="cityobj in cityData">
+                    <td>
+                        <div id="map"></div>
+                    </td>
+                    <td>
+                        <canvas id="myChart "></canvas>{{cityobj.temp}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>
