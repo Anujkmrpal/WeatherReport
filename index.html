@@ -4,19 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Weather App</title>
-    <script src="assets/js/angular.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
-    <script src="/bower_components/ngmap/build/scripts/ng-map.min.js"></script>
-    <script src="http://maps.google.com/maps/api/js"></script>
-    <script src="assets/js/app.js"></script>
-    <script src="assets/js/controller.js"></script>
-    <script src="assets/js/model.js"></script>
+    <!--    <script src="bower_components/zingchart/client/zingchart.min.js"></script>-->
+    <!--    <script src="bower_components/ZingChart-AngularJS/src/zingchart-angularjs.js"></script>-->
     <link rel="stylesheet" href="assets/css/style.css"> </head>
 
 <body ng-app="weatherinfo">
-    <div ng-controller="weatherCntr">
+    <div ng-controller="weatherCntr" class="container">
         <form ng-submit="submitForm()">
-            <input type="text" placeholder="Enter City Name" ng-model="cityName">
+            <input type="text" value="washington" placeholder="Enter City Name" ng-model="cityName">
             <input type="Submit" value="Submit"> </form>
         <table border="1">
             <thead>
@@ -25,21 +20,36 @@
                     <td>Temprature</td>
                 </tr>
             </thead>
-            <tbody>
-                <tr ng-repeat="cityobj in cityData">
-                    <td width="500px">
-                        <div id="map">
-                            <div map-lazy-load="https://maps.google.com/maps/api/js" map-lazy-load-params="{{googleMapsUrl}}">
-                                <ng-map center="{{cityobj.leti}},{{cityobj.lon}}" zoom="{{zoom}}"></ng-map>
-                            </div>
-                        </div>
-                    </td>
-                    <td>
-                        <canvas id="myChart "></canvas>{{cityobj.temp}}</td>
-                </tr>
-            </tbody>
         </table>
+        <div ng-repeat="cityobj in cityData">
+            <div class="mapcover">
+                <div id="map">
+                    <div map-lazy-load="https://maps.google.com/maps/api/js" map-lazy-load-params="{{googleMapsUrl}}">
+                        <ng-map center="{{cityobj.leti}},{{cityobj.lon}}" zoom="{{zoom}}"></ng-map>
+                    </div>
+                </div>
+            </div>
+            <div class="chart">
+                <!--                        <zingchart id="myChart" zc-json="myJson" zc-height=500 zc-width=600></zingchart>-->
+                <ul>
+                    <li>Minimum Temprature : {{cityobj.temp.temp_min}}</li>
+                    <li>Maximum Temprature : {{cityobj.temp.temp_max}}</li>
+                    <li>Pressure : {{cityobj.temp.pressure}}</li>
+                    <li>Ground Level : {{cityobj.temp.grnd_level}}</li>
+                    <li>Humidity : {{cityobj.temp.humidity}}</li>
+                </ul>
+                <!--                <canvas id="myChart" width="400" height="400"></canvas> -->
+            </div>
+        </div>
     </div>
 </body>
+<script src="assets/js/angular.min.js"></script>
+<script src="/bower_components/ngmap/build/scripts/ng-map.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+<script src="http://maps.google.com/maps/api/js"></script>
+<!--<script src="assets/js/canvas.js"></script>-->
+<script src="assets/js/app.js"></script>
+<script src="assets/js/controller.js"></script>
+<script src="assets/js/model.js"></script>
 
 </html>

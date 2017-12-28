@@ -1,0 +1,33 @@
+.container {
+    width: 70%;
+    margin: 0px auto;
+    border: 1px solid;
+}
+
+form {
+    text-align: center;
+}
+
+table {
+    width: 100%;
+    margin-top: 2%;
+}
+
+table thead tr td {
+    width: 50%;
+    text-align: center;
+}
+
+.mapcover {
+    width: 49%;
+    display: inline-block;
+}
+
+.chart {
+    display: inline-block;
+    width: 49%;
+}
+
+.chart ul {
+    list-style: none;
+}

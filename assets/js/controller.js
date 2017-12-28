@@ -30,10 +30,10 @@ app.controller("weatherCntr", function ($scope, weatherFactory, NgMap) {
         NgMap.getMap().then(function (map) {
             //            var tsry = map.getBounds().contains(marker.getPosition());
             //            console.log("try", tsry);
-            console.log("map", map);
-            console.log('markers', map.markers);
-            console.log('shapes', map.shapes);
+            //            console.log("map", map);
+            //            console.log('markers', map.markers);
+            //            console.log('shapes', map.shapes);
         });
-        //map end
+        //    })
     }
 })
