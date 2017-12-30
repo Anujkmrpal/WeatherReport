@@ -23,6 +23,12 @@ table thead tr td {
     display: inline-block;
 }
 
+#resizable {
+    width: 400px;
+    height: 400px;
+    position: relative;
+}
+
 .chart {
     display: inline-block;
     width: 49%;

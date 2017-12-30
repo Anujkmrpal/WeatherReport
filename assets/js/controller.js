@@ -18,11 +18,27 @@ app.controller("weatherCntr", function ($scope, weatherFactory, NgMap) {
                 , temp: data.data.list[0].main
             }
             $scope.cityData.push(cityObject);
-            console.log("array", $scope.cityData);
+            var array = $scope.cityData[$scope.cityData.length - 1];
+            console.log("array", array);
+            $scope.myValues = [[array.temp.humidity, array.temp.temp_max, array.temp.temp_min, array.temp.temp]];
+            $scope.myObj = {
+                series: [
+                    {
+                        lineColor: "#900000"
+                        , marker: {
+                            backgroundColor: "#dc3737"
+                            , borderWidth: 1
+                            , shadow: 0
+                            , borderColor: "#f56b6b"
+                        }
+            }
+            ]
+            };
         }, function (error) {
             $scope.result = error;
         });
         //chart
+        //
         //chart end
         //map
         $scope.zoom = 12;

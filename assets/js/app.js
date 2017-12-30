@@ -1,2 +1,2 @@
-var app = angular.module("weatherinfo", ['ngMap']);
+var app = angular.module("weatherinfo", ['ngMap', 'zingchart-angularjs']);
 //, 'zingchart-angularjs'
