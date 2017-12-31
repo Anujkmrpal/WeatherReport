@@ -20,7 +20,7 @@ app.controller("weatherCntr", function ($scope, weatherFactory, NgMap) {
             $scope.cityData.push(cityObject);
             var array = $scope.cityData[$scope.cityData.length - 1];
             console.log("array", array);
-            $scope.myValues = [[array.temp.humidity, array.temp.temp_max, array.temp.temp_min, array.temp.temp]];
+            $scope.myValues = [array.temp.humidity, array.temp.temp_max, array.temp.temp_min, array.temp.pressure, array.temp.sea_level];
             $scope.myObj = {
                 series: [
                     {
@@ -38,10 +38,11 @@ app.controller("weatherCntr", function ($scope, weatherFactory, NgMap) {
             $scope.result = error;
         });
         //chart
+        console.log("ddddd", $scope.hu);
         //
         //chart end
         //map
-        $scope.zoom = 12;
+        $scope.zoom = 10;
         $scope.googleMapsUrl = "https://maps.googleapis.com/maps/api/js?key=AIzaSyAbPS1Kz6lF4e6C9_lo9ex1jH6VqLr7gqY";
         NgMap.getMap().then(function (map) {
             //            var tsry = map.getBounds().contains(marker.getPosition());
