@@ -30,18 +30,14 @@
                         </div>
                     </div>
                 </div>
-                <div class="chart">
+            </div>
+            <div class="chartpart">
+                <div class="chart" ng-repeat="obj in array">
                     <div id="resizable">
-                        <div zingchart zc-values="myValues" zc-json="myJson" zc-width="100%" zc-height="100%"></div>
+                        <div class="chartdata">
+                            <div zingchart zc-values="obj" zc-json="myJson" zc-width="100%" zc-height="100%"> </div>
+                        </div>
                     </div>
-                    <ul class="chartinfo">
-                        <li>0 : Humidity {{cityobj.temp.humidity}}</li>
-                        <li>1 : Maximum Temprature {{cityobj.temp.temp_max}}</li>
-                        <li>2 : Minimum Temprature {{cityobj.temp.temp_min}}</li>
-                        <li>3 : Pressure {{cityobj.temp.pressure}}</li>
-                        <li>4 : Sea Level {{cityobj.temp.sea_level}}</li>
-                    </ul>
-                    <!--                <canvas id="myChart" width="400" height="400"></canvas> -->
                 </div>
             </div>
         </div>
